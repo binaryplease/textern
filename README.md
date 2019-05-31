@@ -97,6 +97,15 @@ interested in) with the given parameters.
 
 This works similarly with `konsole` instead of `xterm`.
 
+For some terminals (e.g. `termite`) explicitly passing the `%s` 
+variable is required in order to prevent it from creating a new
+(empty) file, since the passed filename is otherwise not 
+correctly read. For `termite` this configuration can be used:
+
+```
+["termite", "-e", "nvim %s", "+call cursor(%l,%c)"]
+```
+
 #### Notes on gnome-terminal
 
 If you would like to use gnome-terminal to spawn a terminal
